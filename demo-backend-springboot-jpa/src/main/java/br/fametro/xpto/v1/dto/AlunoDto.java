@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
  * Classe de domínio de negócio
  * @author marcos.eduardo
  */
-public class XptoDto {
+public class AlunoDto {
 	
     private Long id;
     private String valor1;
@@ -14,19 +14,19 @@ public class XptoDto {
     private LocalDateTime valor3;
 
     // Construtor
-    public XptoDto(Long id, String valor1, String valor2, LocalDateTime valor3) {
+    public AlunoDto(Long id, String valor1, String valor2, LocalDateTime valor3) {
         this.id = id;
         this.valor1 = valor1;
         this.valor2 = valor2;
         this.valor3 = valor3;
     }
     // Construtor
-    public XptoDto(String valor1, String valor2) {
+    public AlunoDto(String valor1, String valor2) {
         this.valor1 = valor1;
         this.valor2 = valor2;
     }
     
-    public XptoDto() {
+    public AlunoDto() {
 	}
     
 	// Getters e setters

@@ -12,31 +12,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.fametro.xpto.v1.dto.XptoDto;
-import br.fametro.xpto.v1.dto.XptoDtoMapper;
-import br.fametro.xpto.v1.model.Xpto;
-import br.fametro.xpto.v1.service.ServicoXpto;
+import br.fametro.xpto.v1.dto.AlunoDto;
+import br.fametro.xpto.v1.dto.AlunoDtoMapper;
+import br.fametro.xpto.v1.model.Aluno;
+import br.fametro.xpto.v1.service.ServicoAluno;
 
 @RestController
 @RequestMapping("/v1/xptos")
-public class XptoController {
+public class AlunoController {
 
-	private final ServicoXpto xptoService;
+	private final ServicoAluno xptoService;
 
-	public XptoController(ServicoXpto xptoService) {
+	public AlunoController(ServicoAluno xptoService) {
 		this.xptoService = xptoService;
 	}
 
 	@GetMapping
-	public List<XptoDto> listarTodos() {
-		List<Xpto> xptos = xptoService.listarXptos();
-		return XptoDtoMapper.toDtoList(xptos);
+	public List<AlunoDto> listarTodos() {
+		List<Aluno> xptos = xptoService.listarXptos();
+		return AlunoDtoMapper.toDtoList(xptos);
 	}
 	
 	@GetMapping("/{id}")
-	public XptoDto obterPorId(@PathVariable Long id) {
-		Xpto xpto = xptoService.buscarXptoPorId(id);
-		return XptoDtoMapper.toDto(xpto);
+	public AlunoDto obterPorId(@PathVariable Long id) {
+		Aluno xpto = xptoService.buscarXptoPorId(id);
+		return AlunoDtoMapper.toDto(xpto);
 	}
 
 //	@GetMapping("/letra/{letra}")
@@ -58,23 +58,23 @@ public class XptoController {
 //	}
 
 	@PostMapping
-	public XptoDto criarXpto(@RequestBody XptoDto xptoDto) {
-		Xpto xpto = XptoDtoMapper.fromDto(xptoDto);
+	public AlunoDto criarXpto(@RequestBody AlunoDto xptoDto) {
+		Aluno xpto = AlunoDtoMapper.fromDto(xptoDto);
 		xpto = xptoService.criarXpto(xpto);
-		return XptoDtoMapper.toDto(xpto);
+		return AlunoDtoMapper.toDto(xpto);
 	}
 
 	@DeleteMapping("/{id}")
 	public void deletarXpto(@PathVariable Long id) {
-		xptoService.removerXpto(new Xpto(id));
+		xptoService.removerXpto(new Aluno(id));
 	}
 	
 	@PutMapping("/{id}")
-	public XptoDto editarXpto(@PathVariable Long id, @RequestBody XptoDto xptoDto) {
+	public AlunoDto editarXpto(@PathVariable Long id, @RequestBody AlunoDto xptoDto) {
 		xptoDto.setId(id);
-		Xpto xpto = XptoDtoMapper.fromDto(xptoDto);
-		Xpto xptoAtualizado = xptoService.atualizarXpto(xpto);
-	    return XptoDtoMapper.toDto(xptoAtualizado);
+		Aluno xpto = AlunoDtoMapper.fromDto(xptoDto);
+		Aluno xptoAtualizado = xptoService.atualizarXpto(xpto);
+	    return AlunoDtoMapper.toDto(xptoAtualizado);
 	}
 
 //    @PostMapping("/json/importar")

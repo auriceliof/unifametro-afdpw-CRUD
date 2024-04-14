@@ -4,41 +4,41 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.fametro.xpto.v1.model.Xpto;
-import br.fametro.xpto.v1.repository.RepositorioXpto;
+import br.fametro.xpto.v1.model.Aluno;
+import br.fametro.xpto.v1.repository.RepositorioAluno;
 
 @Service
-public class ServicoXpto {
+public class ServicoAluno {
 
-	private RepositorioXpto repositorioXpto;
+	private RepositorioAluno repositorioXpto;
 
-	public ServicoXpto(RepositorioXpto repositorioXpto) {
+	public ServicoAluno(RepositorioAluno repositorioXpto) {
 		this.repositorioXpto = repositorioXpto;
 	}
 
-	public List<Xpto> listarXptos() {
-		List<Xpto> xptos = repositorioXpto.findAll();
+	public List<Aluno> listarXptos() {
+		List<Aluno> xptos = repositorioXpto.findAll();
 		if (xptos.isEmpty()) {
 			throw new NegocioException("Nenhuma xpto encontrada.");
 		}
 		return xptos;
 	}
 
-	public Xpto criarXpto(Xpto novaXpto) {
+	public Aluno criarXpto(Aluno novaXpto) {
 		return repositorioXpto.save(novaXpto);
 	}
 
-	public Xpto atualizarXpto(Xpto xpto) {
+	public Aluno atualizarXpto(Aluno xpto) {
 		repositorioXpto.save(xpto);
 		return buscarXptoPorId(xpto.getId());
 	}
 		
-	public void removerXpto(Xpto xpto) {
+	public void removerXpto(Aluno xpto) {
 		//Xpto xptoExistente = this.buscarXptoPorId(xpto.getId());
 		repositorioXpto.deleteById(xpto.getId());
 	}
 	
-	public Xpto buscarXptoPorId(Long id) {
+	public Aluno buscarXptoPorId(Long id) {
         return repositorioXpto.findById(id).orElseThrow(() -> new NegocioException("Xpto não encontrada."));
     }
 

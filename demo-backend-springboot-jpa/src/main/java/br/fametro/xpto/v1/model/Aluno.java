@@ -15,7 +15,7 @@ import jakarta.persistence.Id;
  * @author marcos.eduardo
  */
 @Entity
-public class Xpto {
+public class Aluno {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,12 +28,12 @@ public class Xpto {
     private LocalDateTime valor3;//data
 
     // Construtor
-    public Xpto(Long id, String valor1, String valor2) {
+    public Aluno(Long id, String valor1, String valor2) {
         this.id = id;
         this.valor1 = valor1;
         this.valor2 = valor2;
     }
-    public Xpto(Long id, String valor1, String valor2, LocalDateTime valor3) {
+    public Aluno(Long id, String valor1, String valor2, LocalDateTime valor3) {
         this.id = id;
         this.valor1 = valor1;
         this.valor2 = valor2;
@@ -41,14 +41,14 @@ public class Xpto {
         //this.valor3 = valor3 != null ? LocalDateTime.parse(valor3) : null;
     }
     // Construtor
-    public Xpto(String valor1, String valor2) {
+    public Aluno(String valor1, String valor2) {
         this.valor1 = valor1;
         this.valor2 = valor2;
     }
-    public Xpto(Long id) {
+    public Aluno(Long id) {
         this.id = id;
     }
-    public Xpto() {
+    public Aluno() {
 	}
     
 	// Getters e setters
