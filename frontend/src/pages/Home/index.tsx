@@ -16,7 +16,7 @@ export default function Home() {
                 <h5>Disciplina de Fremeworks Web</h5>
             </div>
             <div>
-                <Link to="/catalog">
+                <Link to="/catalogs">
                     <ButtonPrimary name="Começar" />
                 </Link>
             </div>

@@ -5,6 +5,7 @@ import editIcon from '../../assets/edit.svg';
 import deleteIcon from '../../assets/delete.svg';
 import * as studentService from '../../service/student-service';
 import ButtonPrimary from '../../components/ButtonPrimary';
+import { useNavigate } from 'react-router-dom';
 
 type QueryParams = {
     page: number;
@@ -12,6 +13,8 @@ type QueryParams = {
   }
 
 export default function Catalog() {
+
+    const navigate = useNavigate();
 
     const [students, setStudents] = useState<StudentDTO[]>([]);
 
@@ -29,6 +32,10 @@ export default function Catalog() {
 
         }, [queryParams]);
 
+        function handleNewStudentClick() {
+            navigate("/catalogs/create");
+        }    
+
     return (
        <main>
             <section id="pag-catalog-section" className="pag-container">
@@ -37,7 +44,7 @@ export default function Catalog() {
                 </div>
 
                 <div className="pag-mt40 pag-mb20">
-                    <div >
+                    <div onClick={handleNewStudentClick}>
                         <ButtonPrimary name='Novo' />
                     </div>
                 </div>
