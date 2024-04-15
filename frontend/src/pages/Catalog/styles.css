@@ -2,4 +2,9 @@
     padding: 20px 0;
   }
   
-  
+  .pag-catalog-listing-btn {
+    height: 20px;
+    width: auto;
+    cursor: pointer;
+    margin: 5px;
+  }  
