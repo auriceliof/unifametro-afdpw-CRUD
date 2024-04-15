@@ -30,16 +30,20 @@ export default function NewForm() {
     });
 
     useEffect(() => {
+
         if (isEditing) {
             studentService.findById(Number(params.studentId))
                 .then(response => {
-                    console.log(response.data);
+                    const newFormData = forms.updateAll(formData, response.data);
+                    setFormData(newFormData);
                 })
         }
     }, []);
 
     function handleInputChange(event: any) {
-        setFormData(forms.update(formData, event.target.name, event.target.value));
+        const dataUpdated = forms.update(formData, event.target.name, event.target.value);
+        const dataValidated = forms.validate(dataUpdated, event.target.name)
+        setFormData(dataUpdated);
     }
 
     return (
@@ -55,6 +59,7 @@ export default function NewForm() {
                                     className="pag-form-control" 
                                     onChange={handleInputChange}
                                 />
+                                <div className="pag-form-error">{formData.name.message}</div>
                             </div>                                
                             <div>
                                 <FormInput
@@ -62,6 +67,7 @@ export default function NewForm() {
                                     className="pag-form-control" 
                                     onChange={handleInputChange}
                                 />
+                                <div className="pag-form-error">{formData.cpf.message}</div>
                             </div>
                         </div>
 
