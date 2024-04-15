@@ -1,9 +1,46 @@
-import ButtonPrimary from '../../components/ButtonPrimary';
-import ButtonSecondary from '../../components/ButtonSecondary';
 import './styles.css';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import ButtonSecondary from '../../components/ButtonSecondary';
+import FormInput from '../../components/FormInput';
+import * as forms from '../../utils/forms';
+import * as studentService from '../../service/student-service';
 
 export default function NewForm() {
+
+    const params = useParams();
+
+    const isEditing = params.studentId !== 'created';
+
+    const [formData, setFormData] = useState<any>({
+        name: {
+            value: "",
+            id: "name",
+            name: "name",
+            type: "text",
+            placeholder: "Nome",
+        },
+        cpf: {
+            value: "",
+            id: "cpf",
+            name: "cpf",
+            type: "text",
+            placeholder: "CPF",
+        },
+    });
+
+    useEffect(() => {
+        if (isEditing) {
+            studentService.findById(Number(params.studentId))
+                .then(response => {
+                    console.log(response.data);
+                })
+        }
+    }, []);
+
+    function handleInputChange(event: any) {
+        setFormData(forms.update(formData, event.target.name, event.target.value));
+    }
 
     return (
         <main>
@@ -13,10 +50,18 @@ export default function NewForm() {
                         <h2>Dados do Aluno</h2>
                         <div className="pag-form-controls-container">
                             <div>
-                                <input className="pag-form-control" type="text" placeholder="Nome"/>
+                                <FormInput 
+                                    { ...formData.name }
+                                    className="pag-form-control" 
+                                    onChange={handleInputChange}
+                                />
                             </div>                                
                             <div>
-                                <input className="pag-form-control" type="text" placeholder="cpf"/>
+                                <FormInput
+                                    { ...formData.cpf }
+                                    className="pag-form-control" 
+                                    onChange={handleInputChange}
+                                />
                             </div>
                         </div>
 
@@ -24,7 +69,7 @@ export default function NewForm() {
                             <Link to="/catalogs">
                                 <ButtonSecondary name='Cancelar'/>
                             </Link>
-                                <ButtonPrimary name='Salvar' />
+                            <button type="submit" className="pag-btn-primary">Salvar</button>
                         </div>
                     </form>
                 </div>
