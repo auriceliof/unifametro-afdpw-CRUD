@@ -8,11 +8,11 @@ export default function Header() {
             <nav className="pag-container">
                 <div className="pag-header-navbar">
                     <Link to="/">
-                        <h1>APIRESTful</h1>
+                        <h1>Projeto CRUD</h1>
                     </Link>
                     <div>
                         <Link to="/">
-                            <a href="#">Entrar</a>
+                            <a href="#">Unifametro</a>
                         </Link>
                     </div>
                 </div>

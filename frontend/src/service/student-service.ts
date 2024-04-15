@@ -23,16 +23,6 @@ export function findById(id: number) {
     return requestBackend( { url: `/students/${id}` });
 }
 
-export function deleteById(id: number) {
-    const config : AxiosRequestConfig = {
-        method: "DELETE",
-        url: `/students/${id}`,
-        withCredentials: true
-    }
-
-    return requestBackend(config)
-}
-
 export function updateRequest(obj: StudentDTO) {
     const config : AxiosRequestConfig = {
         method: "PUT",
@@ -52,5 +42,15 @@ export function insertRequest(obj: StudentDTO) {
         data: obj
     }    
     
+    return requestBackend(config)
+}
+
+export function deleteById(id: number) {
+    const config : AxiosRequestConfig = {
+        method: "DELETE",
+        url: `/students/${id}`,
+        withCredentials: true
+    }
+
     return requestBackend(config)
 }
