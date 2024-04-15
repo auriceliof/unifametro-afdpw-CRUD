@@ -33,7 +33,8 @@ export default function NewForm() {
         if (isEditing) {
             studentService.findById(Number(params.studentId))
                 .then(response => {
-                    console.log(response.data);
+                    const newFormData = forms.updateAll(formData, response.data);
+                    setFormData(newFormData);
                 })
         }
     }, []);
