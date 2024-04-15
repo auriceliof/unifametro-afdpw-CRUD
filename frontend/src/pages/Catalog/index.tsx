@@ -6,6 +6,7 @@ import deleteIcon from '../../assets/delete.svg';
 import * as studentService from '../../service/student-service';
 import ButtonPrimary from '../../components/ButtonPrimary';
 import { useNavigate } from 'react-router-dom';
+import DialogInfo from '../../components/DialogInfo';
 
 type QueryParams = {
     page: number;
@@ -15,6 +16,11 @@ type QueryParams = {
 export default function Catalog() {
 
     const navigate = useNavigate();
+
+    const [dialogInfoData, setDialogInfoData] = useState({
+        visible: false,
+        message: "Operação com sucesso!"
+    })
 
     const [students, setStudents] = useState<StudentDTO[]>([]);
 
@@ -34,10 +40,26 @@ export default function Catalog() {
 
         function handleNewStudentClick() {
             navigate("/catalogs/create");
-        }    
+        } 
+        
+        function handleDialogInfoClose() {
+            setDialogInfoData({ ...dialogInfoData, visible: false});
+        }
+
+        function handleDeleteClick() {
+            setDialogInfoData({ ...dialogInfoData, visible: true});
+        }
 
     return (
        <main>
+            {
+                dialogInfoData.visible &&
+                <DialogInfo 
+                    message={dialogInfoData.message}
+                    onDialogClose={handleDialogInfoClose}
+                />
+            }
+
             <section id="pag-catalog-section" className="pag-container">
                 <div>
                     <h2>Listagem de Alunos</h2>
@@ -67,7 +89,7 @@ export default function Catalog() {
                                     <td className="pag-tb768">{student.name}</td>
                                     <td className="pag-txt-left">{student.cpf}</td>
                                     <td><img className="pag-catalog-listing-btn" src={editIcon} alt="Editar" /></td>
-                                    <td><img className="pag-catalog-listing-btn" src={deleteIcon} alt="Deletar" /></td>
+                                    <td><img onClick={handleDeleteClick} className="pag-catalog-listing-btn" src={deleteIcon} alt="Deletar" /></td>
                                 </tr>        
                             ))
                         }                       

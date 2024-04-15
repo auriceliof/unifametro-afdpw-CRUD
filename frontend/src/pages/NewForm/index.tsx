@@ -1,3 +1,5 @@
+import ButtonPrimary from '../../components/ButtonPrimary';
+import ButtonSecondary from '../../components/ButtonSecondary';
 import './styles.css';
 import { Link } from 'react-router-dom';
 
@@ -20,9 +22,9 @@ export default function NewForm() {
 
                         <div className="pag-product-form-buttons">
                             <Link to="/catalogs">
-                                <button type="reset" className="pag-catalog-btn">Cancelar</button>
+                                <ButtonSecondary name='Cancelar'/>
                             </Link>
-                                <button type="submit" className="pag-btn-primary">Salvar</button>
+                                <ButtonPrimary name='Salvar' />
                         </div>
                     </form>
                 </div>
