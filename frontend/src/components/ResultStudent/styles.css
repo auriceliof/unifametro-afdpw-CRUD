@@ -1,0 +1,33 @@
+.pag-resultrepo-card {
+    display: flex;
+}
+
+.pag-resultrepo-information {
+    width: 100%;
+    padding: 10px;
+    background: var(--pag-color-bg-primary);
+    border: 1px solid var(--pag-color-bg-primary);
+    border-radius: 5px;
+}
+
+.pag-resultrepo-information h4 {
+    color: var(--pag-color-font-secondary);
+    margin-bottom: 10px;
+}
+
+.pag-resultrepo-content {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--pag-color-bg-tertiary);
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.pag-resultrepo-content h5 {
+    color: var(--pag-color-font-primary);
+    margin-right: 10px;
+}
+
+.pag-resultrepo-content h6 {
+    color: var(--pag-color-font-secondary);
+}

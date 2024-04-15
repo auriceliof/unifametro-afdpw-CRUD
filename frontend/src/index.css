@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+:root {
+  --pag-color-bg-primary: #e8e8e8;
+  --pag-color-bg-secondary: #ffe500;
+  --pag-color-bg-tertiary: #cac7c7;
+  --pag-color-bg-quaternary:#c9d9f2;
+  --pag-color-bg-quinternary:  #b8c6b9;
+
+  --pag-color-card-bg: #fff;
+  --pag-color-card-border: #d9d9d9;
+
+  --pag-color-btn-primary: #0caf1d;
+  --pag-color-btn-secondary: #f33;
+
+  --pag-color-font-primary: #636363;
+  --pag-color-font-secondary: #3483fa;
+  --pag-color-font-tertiary: #fff;
+  --pag-color-font-placeholder: #d9d9d9;
+
+  --pag-color-error: #f33;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans";
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: unset;
+}
+
+html,
+body {
+  background-color: var(--pag-color-bg-primary);
+}
+
+main {
+  padding: 0 20px;
+}
+
+/*-----------------------------------------------------------------*/
+/* generic styles */
+
+.pag-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pag-mb20 {
+  margin-bottom: 20px;
+}
+
+.pag-mb40 {
+  margin-bottom: 40px;
+}
+
+.pag-mt20 {
+  margin-top: 20px;
+}
+
+.pag-mt40 {
+  margin-top: 40px;
+}
+
+.pag-section-title {
+  text-align: center;
+  color: var(--pag-color-font-primary);
+  font-size: 16px;
+}
+
+.pag-txt-left {
+  text-align: left;
+}
+
+@media (min-width: 576px) {
+  .pag-section-title {
+    text-align: left;
+    font-size: 24px;
+  }
+}

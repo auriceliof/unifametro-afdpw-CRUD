@@ -1,0 +1,13 @@
+.pag-header {
+    background-color: var(--pag-color-bg-secondary);
+    color: var(--pag-color-font-primary);
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.pag-header-navbar {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
