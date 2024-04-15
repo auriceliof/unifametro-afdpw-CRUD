@@ -25,12 +25,13 @@ export default function Catalog() {
 
     const [dialogConfirmationData, setDialogConfirmationData] = useState({
         visible: false,
+        id: 0,
         message: "Tem certeza?"
     })
 
     const [students, setStudents] = useState<StudentDTO[]>([]);
 
-    const [queryParams] = useState<QueryParams>({
+    const [queryParams, setQueryParams] = useState<QueryParams>({
         page: 0,
         name: ""
       });
@@ -52,13 +53,19 @@ export default function Catalog() {
             setDialogInfoData({ ...dialogInfoData, visible: false});
         }
 
-        function handleDeleteClick() {
-            setDialogConfirmationData({ ...dialogConfirmationData, visible: true});
+        function handleDeleteClick(studentId: number) {
+            setDialogConfirmationData({ ...dialogConfirmationData, id: studentId, visible: true});
         }
 
-        function handleDialogConfirmationAnswer(answer: boolean) {
-            console.log("Resposta", answer)    
-            setDialogConfirmationData({ ...dialogConfirmationData, visible: true});
+        function handleDialogConfirmationAnswer(answer: boolean, studentId: number) {
+            if (answer) {
+                studentService.deleteById(studentId)
+                    .then(() => {
+                        setStudents([]);
+                        setQueryParams({ ...queryParams, page: 0});
+                    })
+            }
+            setDialogConfirmationData({ ...dialogConfirmationData, visible: false});
         }
 
     return (
@@ -92,7 +99,7 @@ export default function Catalog() {
                                     <td className="pag-tb768">{student.name}</td>
                                     <td className="pag-txt-left">{student.cpf}</td>
                                     <td><img className="pag-catalog-listing-btn" src={editIcon} alt="Editar" /></td>
-                                    <td><img onClick={handleDeleteClick} className="pag-catalog-listing-btn" src={deleteIcon} alt="Deletar" /></td>
+                                    <td><img onClick={() => handleDeleteClick(student.id)} className="pag-catalog-listing-btn" src={deleteIcon} alt="Deletar" /></td>
                                 </tr>        
                             ))
                         }                       
@@ -109,6 +116,7 @@ export default function Catalog() {
             {
                 dialogConfirmationData.visible &&
                 <DialogConfirmation
+                    id={dialogConfirmationData.id}
                     message={dialogConfirmationData.message}
                     onDialogAnswer={handleDialogConfirmationAnswer}
                 />

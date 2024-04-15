@@ -27,7 +27,6 @@ export function updateRequest(obj: StudentDTO) {
     const config : AxiosRequestConfig = {
         method: "PUT",
         url: `/students/${obj.id}`,
-        withCredentials: true,
         data: obj
     }    
     
@@ -38,7 +37,6 @@ export function insertRequest(obj: StudentDTO) {
     const config : AxiosRequestConfig = {
         method: "POST",
         url: "/students",
-        withCredentials: true,
         data: obj
     }    
     
@@ -49,7 +47,6 @@ export function deleteById(id: number) {
     const config : AxiosRequestConfig = {
         method: "DELETE",
         url: `/students/${id}`,
-        withCredentials: true
     }
 
     return requestBackend(config)
