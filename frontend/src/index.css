@@ -128,11 +128,11 @@ main {
   color: var(--pag-color-font-placeholder);
 }
 
-.pag-form-control[data-dirty="true"][data-invalid="true"] {
+.pag-form-control[data-invalid="true"] {
   border: 1px solid var(--pag-color-error);
 }
 
-.pag-form-control[data-dirty="true"][data-invalid="true"] ~ div {
+.pag-form-control[data-invalid="true"] ~ div {
   display: unset;
 }
 

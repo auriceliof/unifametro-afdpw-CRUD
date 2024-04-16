@@ -19,6 +19,10 @@ export default function NewForm() {
             name: "name",
             type: "text",
             placeholder: "Nome",
+            validation: function(value: string) {
+                return value.length >= 3 && value.length <= 50;
+            },
+            message: "Favor informar um nome de 3 a 80 caracteres"
         },
         cpf: {
             value: "",
@@ -26,6 +30,10 @@ export default function NewForm() {
             name: "cpf",
             type: "text",
             placeholder: "CPF",
+            validation: function(value: string) {
+                return value.length == 11;
+            },
+            message: "Favor informar um CPF válido"
         },
     });
 
@@ -41,9 +49,7 @@ export default function NewForm() {
     }, []);
 
     function handleInputChange(event: any) {
-        const dataUpdated = forms.update(formData, event.target.name, event.target.value);
-        const dataValidated = forms.validate(dataUpdated, event.target.name)
-        setFormData(dataUpdated);
+        setFormData(forms.updateAndValidate(formData, event.target.name, event.target.value));
     }
 
     return (

@@ -20,3 +20,8 @@ export function validate(inputs: any, name: string) {
     const isInvalid = !inputs[name].validation(inputs[name].value);
     return { ...inputs, [name]: { ...inputs[name], invalid: isInvalid.toString() }};
 }
+
+export function updateAndValidate(inputs: any, name: string, newValue: any) {
+    const dataUpdated = update(inputs, name, newValue);
+    return validate(dataUpdated, name);
+}
