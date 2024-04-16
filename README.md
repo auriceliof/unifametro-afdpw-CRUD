@@ -89,9 +89,11 @@ FRONTEND
       Projeto: VITE
 
 
+
 - CASO
 
     O Administrador do Sistema deve visualizar todos os alunos na tela e conseguir realizar as ações de CRUD.
+
   
   
 - TESTES A SEREM REALIZADOS NO SISTEMA WEB
@@ -107,5 +109,21 @@ FRONTEND
 OBS: Não será possível inserir um formulário vazio, bem como todos os campos devem serem preenchidos conforme regras de validação.
 
   
-  
+
+- INTERFACES
+
+  TELA INICIAL
+
+![image](https://github.com/auriceliof/unifametro-afdpw-CRUD/assets/4201131/272f7283-8d7a-4c9b-806b-1e7d5ffb2c00)
+
+
+  TELA DE CATÁLOGO DE ALUNOS
+
+![image](https://github.com/auriceliof/unifametro-afdpw-CRUD/assets/4201131/a7bacc3b-0c4b-497d-ab75-fbe95b34167c)
+
+
+  TELA PARA INSERIR NOVO ALUNO
+
+![image](https://github.com/auriceliof/unifametro-afdpw-CRUD/assets/4201131/cf03b344-53db-44af-8835-42ad1382c3a8)
+
 
