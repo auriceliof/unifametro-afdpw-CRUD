@@ -34,7 +34,7 @@ export default function NewForm() {
             type: "text",
             placeholder: "CPF",
             validation: function(value: string) {
-                return value.length >= 10 && value.length <= 14;
+                return /^(([0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}))$/.test(value);
             },
             message: "Favor informar um CPF válido"
         },
