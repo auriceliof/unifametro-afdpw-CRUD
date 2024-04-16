@@ -1,39 +1,110 @@
-# Projeto Pós-Graduação em Engenharia de Software, DevOps e Computação em Nuvem
+@AUTHOR: Auricelio Freitas
 
-## Disciplina: Arquitetura e Frameworks para Desenvolvimento Web
+DATA: 16/04/2024
 
-**Atividade:** Desenvolvimento de API RESTful 🚀  
-**Professor:** Marcos Eduardo
+-----------------------------------------------------------
+BACKEND
 
-### Descrição
+- DEPENDÊNCIAS 
 
-Este repositório contém os módulos de back-end e front-end para uma aplicação desenvolvida como parte da disciplina de Arquitetura e Frameworks para Desenvolvimento Web. O projeto utiliza Spring Boot para o back-end e React para o front-end, com integração via API RESTful.
+    O projeto será implementado conforme abaixo: 
+    
+      IDE: Spring Tool Suite 4 (STS)
 
-### Projetos
+      Banco de Dados: H2
 
-#### Back-End
-Localização: `package br.fametro.xpto;`
+      Gerenciador de Dependências: Maven
 
-O back-end é desenvolvido com Spring Boot, configurado para oferecer uma API RESTful documentada com Swagger. Utiliza conexões CORS, configurações de servlet e JPA para interação com banco de dados SQLite através de Hibernate.
+      Linguagem: Java
 
-**Tecnologias:** Spring Boot, Swagger, JPA
+      Versionamento: Git e GitHub
 
-#### Front-End
-Localização: `html e javascript dentro do projeto`
-
-O front-end é uma simples página web usando React para manipular dados de usuários, permitindo operações CRUD através da API do back-end. Inclui formulários para inserção e edição, além de listagem dinâmica dos dados.
-
-**Tecnologias:** React, HTML, CSS
-
-### Como Usar
-
-1. Clone o repositório.
-2. Configure o ambiente de desenvolvimento com as dependências necessárias para Spring Boot e React.
-3. Inicie o servidor backend e o frontend conforme as instruções detalhadas nos respectivos diretórios.
-
-### Licença
-
-Este projeto está licenciado sob a Licença Apache 2.0. Veja o arquivo [LICENSE](http://springdoc.org) para mais detalhes.
+      Testes da API: Postman
 
 
+
+- CASO
+
+    Uma Universidade precisa cadastrar os seus alunos, conforme segue abaixo:
+  
+      NOME
+  
+      CPF
+  
+      DATA DE NASCIMENTO
+  
+      RENDA 
+
+
+- TESTES A SEREM REALIZADOS NO POSTMAN
+
+    BUSCA PAGINADA DE ALUNOS
+    
+      GET /students?page=0&sort=name,asc
+    
+    BUSCA DE ALUNO POR ID
+    
+      GET /students/1
+    
+    INSERIR NOVO ALUNO
+    
+      POST /students
+      {
+        "name": "Auricelio Freitas",
+        "cpf": "12345678901",
+        "birthDate": "1982-08-28T10:30:00Z",
+        "income": 15089.0,
+      }
+  
+    ATUALIZAR ALUNO
+    
+      PUT /students/1
+      {
+        "name": "Auricelio Moreira",
+        "cpf": "12345678901",
+        "birthDate": "1982-08-28T10:30:00Z",
+        "income": 15089.0,
+      }
+  
+    DELETAR ALUNO
+    
+       DELETE /clients/1
+
+#-------------------------------------------------------------------------------------------------#
+FRONTEND  
+
+- DEPENDÊNCIAS 
+
+    O projeto será implementado conforme abaixo: 
+    
+      IDE: Visual Studio Code (v. 1.88.1)
+      
+      Gerenciador de Dependências: Node (v. 18.19) / Yarn (v. 1.22.21)
+
+      Linguagem: JavaScript/TypeScript
+
+      Versionamento: Git e GitHub
+
+      Projeto: VITE
+
+
+- CASO
+
+    O Administrador do Sistema deve visualizar todos os alunos na tela e conseguir realizar as ações de CRUD.
+  
+  
+- TESTES A SEREM REALIZADOS NO SISTEMA WEB
+
+  VISUALIZAR TODOS OS ALUNOS NUMA TABELA 
+    
+  INSERIR UM NOVO ALUNO
+
+  EDITAR UM ALUNO EXISTENTE
+
+  DELETAR UM ALUNO EXISTENTE
+
+OBS: Não será possível inserir um formulário vazio, bem como todos os campos devem serem preenchidos conforme regras de validação.
+
+  
+  
 
