@@ -12,7 +12,7 @@ export default function NewForm() {
 
     const params = useParams();
 
-    const isEditing = params.studentId !== 'created';
+    const isEditing = params.studentId !== 'create';
 
     const [formData, setFormData] = useState<any>({
         name: {
@@ -68,7 +68,11 @@ export default function NewForm() {
             requestBody.id = params.studentId;
         }
 
-        studentService.updateRequest(requestBody)
+        const request = isEditing
+            ? studentService.updateRequest(requestBody)
+            : studentService.insertRequest(requestBody)
+        
+        request
             .then(() => {
                 navigate("/catalogs");
             });
