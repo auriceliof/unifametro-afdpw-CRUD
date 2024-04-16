@@ -1,12 +1,14 @@
 import './styles.css';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ButtonSecondary from '../../components/ButtonSecondary';
 import FormInput from '../../components/FormInput';
 import * as forms from '../../utils/forms';
 import * as studentService from '../../service/student-service';
 
 export default function NewForm() {
+
+    const navigate = useNavigate();
 
     const params = useParams();
 
@@ -31,7 +33,7 @@ export default function NewForm() {
             type: "text",
             placeholder: "CPF",
             validation: function(value: string) {
-                return value.length == 11;
+                return value.length >= 10 && value.length <= 14;
             },
             message: "Favor informar um CPF válido"
         },
@@ -55,7 +57,21 @@ export default function NewForm() {
     function handleSubmit(event: any) {
         event.preventDefault();
 
-        console.log(forms.toValues(formData));
+        const formDataValidated = forms.dirtyAndValidateAll(formData);
+        if (forms.hasAnyInvalid(formDataValidated)) {
+            setFormData(formDataValidated);
+            return;
+        }
+
+        const requestBody = forms.toValues(formData);
+        if (isEditing) {
+            requestBody.id = params.studentId;
+        }
+
+        studentService.updateRequest(requestBody)
+            .then(() => {
+                navigate("/catalogs");
+            });
     }
 
     return (
