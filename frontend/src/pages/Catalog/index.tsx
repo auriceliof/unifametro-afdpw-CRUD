@@ -91,6 +91,8 @@ export default function Catalog() {
                             <th className="pag-tb576">ID</th>
                             <th className="pag-tb768">NOME</th>
                             <th className="pag-txt-left">CPF</th>
+                            <th className="pag-txt-left">DATA DE NASCIMENTO</th>
+                            <th className="pag-txt-left">SALARIO</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -102,6 +104,8 @@ export default function Catalog() {
                                     <td className="pag-tb576">{student.id}</td>
                                     <td className="pag-tb768">{student.name}</td>
                                     <td className="pag-txt-left">{student.cpf}</td>
+                                    <td className="pag-txt-left">{student.birthDate.toString()}</td>
+                                    <td className="pag-txt-left">R$ {student.income}</td>                                    
                                     <td><img onClick={() => handleUpdateClick(student.id)}className="pag-catalog-listing-btn" src={editIcon} alt="Editar" /></td>
                                     <td><img onClick={() => handleDeleteClick(student.id)} className="pag-catalog-listing-btn" src={deleteIcon} alt="Deletar" /></td>
                                 </tr>        

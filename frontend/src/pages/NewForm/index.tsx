@@ -38,6 +38,20 @@ export default function NewForm() {
             },
             message: "Favor informar um CPF válido"
         },
+        birthDate: {
+            value: "",
+            id: "birthDate",
+            name: "birthDate",
+            type: "date",
+            placeholder: "Data de Nascimento",
+        },
+        income: {
+            value: 0,
+            id: "income",
+            name: "income",
+            type: "number",
+            placeholder: "Salário",
+        },
     });
 
     useEffect(() => {
@@ -101,6 +115,22 @@ export default function NewForm() {
                                     onChange={handleInputChange}
                                 />
                                 <div className="pag-form-error">{formData.cpf.message}</div>
+                            </div>
+                            <div>
+                                <FormInput
+                                    { ...formData.birthDate }
+                                    className="pag-form-control" 
+                                    onChange={handleInputChange}
+                                />
+                                <div className="pag-form-error">{formData.birthDate.message}</div>
+                            </div>
+                            <div>
+                                <FormInput
+                                    { ...formData.income }
+                                    className="pag-form-control" 
+                                    onChange={handleInputChange}
+                                />
+                                <div className="pag-form-error">{formData.income.message}</div>
                             </div>
                         </div>
 

@@ -178,6 +178,7 @@ main {
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
+  text-align-last: center;
 }
 
 .pag-table thead {

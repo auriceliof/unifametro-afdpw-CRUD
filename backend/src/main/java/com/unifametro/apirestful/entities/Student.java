@@ -1,7 +1,10 @@
 package com.unifametro.apirestful.entities;
 
 import java.io.Serializable;
+import java.time.Instant;
+import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,15 +22,21 @@ public class Student implements Serializable {
 	private String name;
 	private String cpf;
 	
+	@Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
+	private Instant birthDate;
+	private Double income;
+	
 	public Student() {
 		
 	}	
 
-	public Student(Long id, String name, String cpf) {
+	public Student(Long id, String name, String cpf, Instant birthDate, Double income) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
+		this.birthDate = birthDate;
+		this.income = income;
 	}
 
 	public Long getId() {
@@ -53,6 +62,41 @@ public class Student implements Serializable {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
+	
+	
+	public Instant getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Instant birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public Double getIncome() {
+		return income;
+	}
+
+	public void setIncome(Double income) {
+		this.income = income;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return Objects.equals(id, other.id);
+	}	
 }
 
 

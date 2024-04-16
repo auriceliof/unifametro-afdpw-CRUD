@@ -45,6 +45,8 @@ public class StudentService {
 		
 			entity.setName(dto.getName());
 			entity.setCpf(dto.getCpf());
+			entity.setBirthDate(dto.getBirthDate());
+			entity.setIncome(dto.getIncome());
 		
 		entity = repository.save(entity);
 		
@@ -58,6 +60,8 @@ public class StudentService {
 			
 				entity.setName(dto.getName());
 				entity.setCpf(dto.getCpf());
+				entity.setBirthDate(dto.getBirthDate());
+				entity.setIncome(dto.getIncome());
 			
 			entity = repository.save(entity);
 			
