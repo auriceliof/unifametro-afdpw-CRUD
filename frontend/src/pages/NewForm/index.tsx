@@ -5,6 +5,7 @@ import ButtonSecondary from '../../components/ButtonSecondary';
 import FormInput from '../../components/FormInput';
 import * as forms from '../../utils/forms';
 import * as studentService from '../../service/student-service';
+import ButtonPrimary from '../../components/ButtonPrimary';
 
 export default function NewForm() {
 
@@ -107,7 +108,7 @@ export default function NewForm() {
                             <Link to="/catalogs">
                                 <ButtonSecondary name='Cancelar'/>
                             </Link>
-                            <button type="submit" className="pag-btn-primary">Salvar</button>
+                            <ButtonPrimary name='Salvar' />
                         </div>
                     </form>
                 </div>
