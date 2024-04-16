@@ -52,11 +52,17 @@ export default function NewForm() {
         setFormData(forms.updateAndValidate(formData, event.target.name, event.target.value));
     }
 
+    function handleSubmit(event: any) {
+        event.preventDefault();
+
+        console.log(forms.toValues(formData));
+    }
+
     return (
         <main>
             <section id="product-form-section" className="pag-container">
                 <div className="pag-product-form-container">
-                    <form className="pag-card pag-form" >
+                    <form className="pag-card pag-form" onSubmit={handleSubmit}>
                         <h2>Dados do Aluno</h2>
                         <div className="pag-form-controls-container">
                             <div>

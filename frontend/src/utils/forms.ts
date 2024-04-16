@@ -11,6 +11,16 @@ export function updateAll(inputs: any, newValues: any) {
     return newInputs;
 }
 
+export function toValues(inputs: any) {
+
+    const data: any = {};
+    for (var name in inputs) {
+        data[name] = inputs[name].value;
+    }
+    return data;
+}
+
+
 export function validate(inputs: any, name: string) {
 
     if (!inputs[name].validation) {

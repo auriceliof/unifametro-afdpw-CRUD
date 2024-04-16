@@ -53,6 +53,10 @@ export default function Catalog() {
             setDialogInfoData({ ...dialogInfoData, visible: false});
         }
 
+        function handleUpdateClick(studentId: number) {
+            navigate(`/catalogs/${studentId}`)
+        }
+
         function handleDeleteClick(studentId: number) {
             setDialogConfirmationData({ ...dialogConfirmationData, id: studentId, visible: true});
         }
@@ -98,7 +102,7 @@ export default function Catalog() {
                                     <td className="pag-tb576">{student.id}</td>
                                     <td className="pag-tb768">{student.name}</td>
                                     <td className="pag-txt-left">{student.cpf}</td>
-                                    <td><img className="pag-catalog-listing-btn" src={editIcon} alt="Editar" /></td>
+                                    <td><img onClick={() => handleUpdateClick(student.id)}className="pag-catalog-listing-btn" src={editIcon} alt="Editar" /></td>
                                     <td><img onClick={() => handleDeleteClick(student.id)} className="pag-catalog-listing-btn" src={deleteIcon} alt="Deletar" /></td>
                                 </tr>        
                             ))
