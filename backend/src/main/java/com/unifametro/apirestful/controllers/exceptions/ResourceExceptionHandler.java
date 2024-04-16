@@ -1,4 +1,4 @@
-package com.unifametro.apirestful.resources.exceptions;
+package com.unifametro.apirestful.controllers.exceptions;
 
 import java.time.Instant;
 

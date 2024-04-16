@@ -1,7 +1,6 @@
 package com.unifametro.apirestful.dto;
 
 import java.io.Serializable;
-import java.time.Instant;
 
 import com.unifametro.apirestful.entities.Student;
 
