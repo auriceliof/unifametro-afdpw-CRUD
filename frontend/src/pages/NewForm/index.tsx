@@ -42,8 +42,9 @@ export default function NewForm() {
             value: "",
             id: "birthDate",
             name: "birthDate",
-            type: "date",
+            type: "datetime-local",
             placeholder: "Data de Nascimento",
+
         },
         income: {
             value: 0,
@@ -86,11 +87,24 @@ export default function NewForm() {
         const request = isEditing
             ? studentService.updateRequest(requestBody)
             : studentService.insertRequest(requestBody)
+            console.log(requestBody)
         
         request
             .then(() => {
                 navigate("/catalogs");
             });
+    }
+
+    // Função para formatar data e hora no formato "2023-01-20T20:38:12"
+    function formatarDataHora(dataHora: any) {
+        const data = new Date(dataHora);
+        const ano = data.getFullYear();
+        const mes = String(data.getMonth() + 1).padStart(2, '0');
+        const dia = String(data.getDate()).padStart(2, '0');
+        const hora = String(data.getHours()).padStart(2, '0');
+        const minuto = String(data.getMinutes()).padStart(2, '0');
+        const segundo = String(data.getSeconds()).padStart(2, '0');
+        return `${ano}-${mes}-${dia}T${hora}:${minuto}:${segundo}Z`;
     }
 
     return (
@@ -121,7 +135,8 @@ export default function NewForm() {
                                     { ...formData.birthDate }
                                     className="pag-form-control" 
                                     onChange={handleInputChange}
-                                />
+
+                                />                                
                                 <div className="pag-form-error">{formData.birthDate.message}</div>
                             </div>
                             <div>
