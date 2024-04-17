@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import ButtonSecondary from '../../components/ButtonSecondary';
 import FormInput from '../../components/FormInput';
+import ButtonPrimary from '../../components/ButtonPrimary';
 import * as forms from '../../utils/forms';
 import * as studentService from '../../service/student-service';
-import ButtonPrimary from '../../components/ButtonPrimary';
 
 export default function NewForm() {
 
@@ -42,9 +42,8 @@ export default function NewForm() {
             value: "",
             id: "birthDate",
             name: "birthDate",
-            type: "datetime-local",
+            type: "date",
             placeholder: "Data de Nascimento",
-
         },
         income: {
             value: 0,
@@ -87,7 +86,7 @@ export default function NewForm() {
         const request = isEditing
             ? studentService.updateRequest(requestBody)
             : studentService.insertRequest(requestBody)
-            console.log(requestBody)
+            console.log(requestBody.birthDate)
         
         request
             .then(() => {
@@ -95,22 +94,10 @@ export default function NewForm() {
             });
     }
 
-    // Função para formatar data e hora no formato "2023-01-20T20:38:12"
-    function formatarDataHora(dataHora: any) {
-        const data = new Date(dataHora);
-        const ano = data.getFullYear();
-        const mes = String(data.getMonth() + 1).padStart(2, '0');
-        const dia = String(data.getDate()).padStart(2, '0');
-        const hora = String(data.getHours()).padStart(2, '0');
-        const minuto = String(data.getMinutes()).padStart(2, '0');
-        const segundo = String(data.getSeconds()).padStart(2, '0');
-        return `${ano}-${mes}-${dia}T${hora}:${minuto}:${segundo}Z`;
-    }
-
     return (
         <main>
-            <section id="product-form-section" className="pag-container">
-                <div className="pag-product-form-container">
+            <section id="pag-form-section" className="pag-container">
+                <div className="pag-form-container">
                     <form className="pag-card pag-form" onSubmit={handleSubmit}>
                         <h2>Dados do Aluno</h2>
                         <div className="pag-form-controls-container">
@@ -149,7 +136,7 @@ export default function NewForm() {
                             </div>
                         </div>
 
-                        <div className="pag-product-form-buttons">
+                        <div className="pag-form-buttons">
                             <Link to="/catalogs">
                                 <ButtonSecondary name='Cancelar'/>
                             </Link>

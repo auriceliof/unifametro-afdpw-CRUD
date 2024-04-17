@@ -23,22 +23,22 @@ export function findById(id: number) {
     return requestBackend( { url: `/students/${id}` });
 }
 
-export function updateRequest(obj: StudentDTO) {
-    const config : AxiosRequestConfig = {
-        method: "PUT",
-        url: `/students/${obj.id}`,
-        data: obj
-    }    
-    
-    return requestBackend(config)
-}
-
 export function insertRequest(obj: StudentDTO) {
 
     const config : AxiosRequestConfig = {
         method: "POST",
         url: "/students",
         data: obj    
+    }    
+    
+    return requestBackend(config)
+}
+
+export function updateRequest(obj: StudentDTO) {
+    const config : AxiosRequestConfig = {
+        method: "PUT",
+        url: `/students/${obj.id}`,
+        data: obj
     }    
     
     return requestBackend(config)
@@ -51,19 +51,4 @@ export function deleteById(id: number) {
     }
 
     return requestBackend(config)
-}
-
-
-
-
-// Função para formatar data e hora no formato "2023-01-20T20:38:12"
-function formatarDataHora(dataHora: any) {
-    const data = new Date(dataHora);
-    const ano = data.getFullYear();
-    const mes = String(data.getMonth() + 1).padStart(2, '0');
-    const dia = String(data.getDate()).padStart(2, '0');
-    const hora = String(data.getHours()).padStart(2, '0');
-    const minuto = String(data.getMinutes()).padStart(2, '0');
-    const segundo = String(data.getSeconds()).padStart(2, '0');
-    return `${ano}-${mes}-${dia}T${hora}:${minuto}:${segundo}Z`;
 }

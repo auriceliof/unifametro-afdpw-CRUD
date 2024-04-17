@@ -8,6 +8,7 @@ import ButtonPrimary from '../../components/ButtonPrimary';
 import { useNavigate } from 'react-router-dom';
 import DialogInfo from '../../components/DialogInfo';
 import DialogConfirmation from '../../components/DialogConfirmation';
+import { formatDateBR } from '../../utils/format';
 
 type QueryParams = {
     page: number;
@@ -70,16 +71,7 @@ export default function Catalog() {
                     })
             }
             setDialogConfirmationData({ ...dialogConfirmationData, visible: false});
-        }
-
-        // Função para formatar data e hora no formato "dd/mm/yyyy"
-        function formatarDataHora(dataHora: any) {
-            const data = new Date(dataHora);
-            const ano = data.getFullYear();
-            const mes = String(data.getMonth() + 1).padStart(2, '0');
-            const dia = String(data.getDate()).padStart(2, '0');
-            return `${dia}/${mes}/${ano}`;
-        }
+        }       
 
     return (
        <main>
@@ -89,7 +81,7 @@ export default function Catalog() {
                 </div>
 
                 <div className="pag-mt40 pag-mb20">
-                    <div onClick={handleNewStudentClick}>
+                    <div className="pag-catalog-btn" onClick={handleNewStudentClick}>
                         <ButtonPrimary name='Novo' />
                     </div>
                 </div>
@@ -113,7 +105,7 @@ export default function Catalog() {
                                     <td className="pag-tb576">{student.id}</td>
                                     <td className="pag-tb768">{student.name}</td>
                                     <td className="pag-txt-left">{student.cpf}</td>
-                                    <td className="pag-txt-left">{formatarDataHora(student.birthDate)}</td>
+                                    <td className="pag-txt-left">{formatDateBR(student.birthDate)}</td>
                                     <td className="pag-txt-left">R$ {student.income}</td>                                    
                                     <td><img onClick={() => handleUpdateClick(student.id)}className="pag-catalog-listing-btn" src={editIcon} alt="Editar" /></td>
                                     <td><img onClick={() => handleDeleteClick(student.id)} className="pag-catalog-listing-btn" src={deleteIcon} alt="Deletar" /></td>

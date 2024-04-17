@@ -20,7 +20,6 @@ export function toValues(inputs: any) {
     return data;
 }
 
-
 export function validate(inputs: any, name: string) {
 
     if (!inputs[name].validation) {
