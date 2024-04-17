@@ -49,8 +49,9 @@ export default function NewForm() {
             value: 0,
             id: "income",
             name: "income",
-            type: "number",
+            type: "double",
             placeholder: "Salário",
+           
         },
     });
 
@@ -86,7 +87,7 @@ export default function NewForm() {
         const request = isEditing
             ? studentService.updateRequest(requestBody)
             : studentService.insertRequest(requestBody)
-            console.log(requestBody.birthDate)
+            console.log(requestBody)
         
         request
             .then(() => {
@@ -102,6 +103,7 @@ export default function NewForm() {
                         <h2>Dados do Aluno</h2>
                         <div className="pag-form-controls-container">
                             <div>
+                                <h5>Nome</h5>
                                 <FormInput 
                                     { ...formData.name }
                                     className="pag-form-control" 
@@ -110,6 +112,7 @@ export default function NewForm() {
                                 <div className="pag-form-error">{formData.name.message}</div>
                             </div>                                
                             <div>
+                                <h5>CPF</h5>
                                 <FormInput
                                     { ...formData.cpf }
                                     className="pag-form-control" 
@@ -118,6 +121,7 @@ export default function NewForm() {
                                 <div className="pag-form-error">{formData.cpf.message}</div>
                             </div>
                             <div>
+                                <h5>Data de Nascimento</h5>
                                 <FormInput
                                     { ...formData.birthDate }
                                     className="pag-form-control" 
@@ -127,6 +131,7 @@ export default function NewForm() {
                                 <div className="pag-form-error">{formData.birthDate.message}</div>
                             </div>
                             <div>
+                                <h5>Renda</h5>
                                 <FormInput
                                     { ...formData.income }
                                     className="pag-form-control" 

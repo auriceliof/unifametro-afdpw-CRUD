@@ -97,10 +97,15 @@ main {
 
 .pag-form h2 {
   font-size: 16px;
-  color: var(--pag-color-font-primary);
+  color: var(--pag-color-font-secondary);
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
+}
+
+.pag-form h5 {
+  color: var(--pag-color-font-primary);
+  margin-left: 10px;
 }
 
 .pag-form-controls-container {
@@ -184,7 +189,7 @@ main {
 .pag-table thead {
   height: 55px;
   font-size: 14px;
-  color: var(--pag-color-font-primary);
+  color: var(--pag-color-font-secondary);
   background-color: var(--pag-color-card-bg);
 }
 
