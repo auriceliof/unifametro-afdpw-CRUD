@@ -1,7 +1,7 @@
 package com.unifametro.apirestful.dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
 
 import com.unifametro.apirestful.entities.Student;
 
@@ -11,14 +11,14 @@ public class StudentDTO implements Serializable {
 	private Long id;
 	private String name;
 	private String cpf;
-	private LocalDate birthDate;
+	private Instant birthDate;
 	private Double income;
 	
 	public StudentDTO() {
 		
 	}
 
-	public StudentDTO(Long id, String name, String cpf, LocalDate birthDate, Double income) {
+	public StudentDTO(Long id, String name, String cpf, Instant birthDate, Double income) {
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
@@ -58,11 +58,11 @@ public class StudentDTO implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public LocalDate getBirthDate() {
+	public Instant getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(LocalDate birthDate) {
+	public void setBirthDate(Instant birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -74,3 +74,27 @@ public class StudentDTO implements Serializable {
 		this.income = income;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

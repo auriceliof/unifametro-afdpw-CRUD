@@ -1,7 +1,7 @@
 package com.unifametro.apirestful.entities;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -23,14 +23,14 @@ public class Student implements Serializable {
 	private String cpf;
 	
 	@Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
-	private LocalDate birthDate;
+	private Instant birthDate;
 	private Double income;
 	
 	public Student() {
 		
 	}	
 
-	public Student(Long id, String name, String cpf, LocalDate birthDate, Double income) {
+	public Student(Long id, String name, String cpf, Instant birthDate, Double income) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -61,13 +61,15 @@ public class Student implements Serializable {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}	
+	}
+
 	
-	public LocalDate getBirthDate() {
+	
+	public Instant getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(LocalDate birthDate) {
+	public void setBirthDate(Instant birthDate) {
 		this.birthDate = birthDate;
 	}
 
