@@ -1,3 +1,8 @@
 .pag-home-content{
     color: var(--pag-color-font-primary);
 }
+
+.pag-home-btn {
+    margin-top: 80px;
+    width: 20px;
+}

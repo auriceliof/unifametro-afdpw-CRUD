@@ -100,7 +100,7 @@ export default function NewForm() {
             <section id="pag-form-section" className="pag-container">
                 <div className="pag-form-container">
                     <form className="pag-card pag-form" onSubmit={handleSubmit}>
-                        <h2>Dados do Aluno</h2>
+                        <h2 className="pag-mb20">Dados do Aluno</h2>
                         <div className="pag-form-controls-container">
                             <div>
                                 <h5>Nome</h5>

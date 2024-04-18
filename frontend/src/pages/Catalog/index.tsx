@@ -77,7 +77,7 @@ export default function Catalog() {
        <main>
             <section id="pag-catalog-section" className="pag-container">
                 <div>
-                    <h2>Listagem de Alunos</h2>
+                    <h2 className="pag-mt20">Listagem de Alunos</h2>
                 </div>
 
                 <div className="pag-mt40 pag-mb20">
