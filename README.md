@@ -112,18 +112,20 @@ OBS: Não será possível inserir um formulário vazio, bem como todos os campos
 
 - INTERFACES
 
-  TELA INICIAL
+  HOME
 
-![image](https://github.com/auriceliof/unifametro-afdpw-CRUD/assets/4201131/272f7283-8d7a-4c9b-806b-1e7d5ffb2c00)
-
-
-  TELA DE CATÁLOGO DE ALUNOS
-
-![image](https://github.com/auriceliof/unifametro-afdpw-CRUD/assets/4201131/a7bacc3b-0c4b-497d-ab75-fbe95b34167c)
+![image](https://github.com/auriceliof/unifametro-afdpw-CRUD/assets/4201131/9af51f33-9746-4470-85d6-13b8f358beb2)
 
 
-  TELA PARA INSERIR NOVO ALUNO
 
-![image](https://github.com/auriceliof/unifametro-afdpw-CRUD/assets/4201131/cf03b344-53db-44af-8835-42ad1382c3a8)
+  CATÁLOGO DE ALUNOS
+
+![image](https://github.com/auriceliof/unifametro-afdpw-CRUD/assets/4201131/51a4b706-52fd-48de-900e-c08989c79953)
+
+
+
+  CADASTRAR NOVO ALUNO
+
+![image](https://github.com/auriceliof/unifametro-afdpw-CRUD/assets/4201131/7af8c082-c428-4355-83f7-27a65fccd935)
 
 
