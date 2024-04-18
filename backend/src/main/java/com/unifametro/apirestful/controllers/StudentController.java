@@ -21,7 +21,7 @@ import com.unifametro.apirestful.services.StudentService;
 
 @RestController
 @RequestMapping(value = "/students")
-public class StudentResource {
+public class StudentController {
 	
 	@Autowired
 	private StudentService service;

@@ -93,7 +93,7 @@ export default function Catalog() {
                             <th className="pag-tb768">NOME</th>
                             <th className="pag-txt-left">CPF</th>
                             <th className="pag-txt-left">DATA DE NASCIMENTO</th>
-                            <th className="pag-txt-left">SALARIO</th>
+                            <th className="pag-txt-left">RENDA</th>
                             <th></th>
                             <th></th>
                         </tr>
