@@ -19,14 +19,26 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.unifametro.apirestful.dto.StudentDTO;
 import com.unifametro.apirestful.services.StudentService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+
 @RestController
 @RequestMapping(value = "/students")
+@Tag(name = "open-api")
 public class StudentController {
 	
 	@Autowired
 	private StudentService service;
 	
-	@GetMapping
+	
+	@Operation(summary = "Busca todos os alunos", method = "GET")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Busca realizada com sucesso!")
+	})
+	@GetMapping()
 	public ResponseEntity<Page<StudentDTO>> findAll(Pageable pageable){
 		
 		Page<StudentDTO> list = service.findAllPaged(pageable);
