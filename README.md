@@ -1,6 +1,16 @@
-@AUTHOR: Auricelio Freitas
+Pós-Graduação em Engenharia de Software, Devops e Computação em Nuvem
 
-DATA: 16/04/2024
+Disciplina de Arquitetura e Frameworks para Desenvolvimento Web
+
+Projeto CRUD
+
+Equipe: 
+    - Auricelio Freitas
+    - Miguel Soares
+    - Rafael Sales
+    - Matheus Marques
+
+DATA: 19/04/2024
 
 -----------------------------------------------------------
 BACKEND
@@ -20,6 +30,8 @@ BACKEND
       Versionamento: Git e GitHub
 
       Testes da API: Postman
+
+      Documentação: Swagger OpenApi
 
 
 
@@ -71,6 +83,10 @@ BACKEND
        DELETE /clients/1
 
 
+- SWAGGER OPENAPI
+
+  Link de acesso ao Swagger: http://localhost:8080/swagger-ui/index.html#
+  
 -----------------------------------------------------------
 FRONTEND
 
@@ -109,7 +125,7 @@ FRONTEND
 OBS: Não será possível inserir um formulário vazio, bem como todos os campos devem serem preenchidos conforme regras de validação.
 
   
-
+-----------------------------------------------------------
 - INTERFACES
 
   HOME
@@ -129,3 +145,8 @@ OBS: Não será possível inserir um formulário vazio, bem como todos os campos
 ![image](https://github.com/auriceliof/unifametro-afdpw-CRUD/assets/4201131/7af8c082-c428-4355-83f7-27a65fccd935)
 
 
+  SWAGGER OPENAPI
+  
+![image](https://github.com/auriceliof/unifametro-afdpw-CRUD/assets/4201131/212eb08a-9600-4aa7-81e2-1c2d796a9ea7)
+
+    
