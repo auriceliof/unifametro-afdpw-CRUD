@@ -20,14 +20,10 @@ import com.unifametro.apirestful.dto.StudentDTO;
 import com.unifametro.apirestful.services.StudentService;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.tags.Tag;
 
 
 @RestController
 @RequestMapping(value = "/students")
-@Tag(name = "open-api")
 public class StudentController {
 	
 	@Autowired
@@ -35,9 +31,6 @@ public class StudentController {
 	
 	
 	@Operation(summary = "Busca todos os alunos", method = "GET")
-	@ApiResponses(value = {
-			@ApiResponse(responseCode = "200", description = "Busca realizada com sucesso!")
-	})
 	@GetMapping()
 	public ResponseEntity<Page<StudentDTO>> findAll(Pageable pageable){
 		
@@ -46,6 +39,7 @@ public class StudentController {
 		return ResponseEntity.ok().body(list);
 	}
 	
+	@Operation(summary = "Busca alunos po ID", method = "GET")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<StudentDTO> findById(@PathVariable Long id){
 		
@@ -54,6 +48,7 @@ public class StudentController {
 		return ResponseEntity.ok().body(dto);
 	}
 	
+	@Operation(summary = "Cadastra novos alunos", method = "POS")
 	@PostMapping
 	public ResponseEntity<StudentDTO> insert(@RequestBody StudentDTO dto){
 		
@@ -64,6 +59,7 @@ public class StudentController {
 		return ResponseEntity.created(uri).body(dto);
 	}
 	
+	@Operation(summary = "Atualiza aluno existente", method = "PUT")
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<StudentDTO> update(@PathVariable Long id, @RequestBody StudentDTO dto){
 		
@@ -72,6 +68,7 @@ public class StudentController {
 		return ResponseEntity.ok().body(dto);
 	}
 	
+	@Operation(summary = "Deleta aluno existente", method = "DELETE")
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<StudentDTO> delete(@PathVariable Long id){
 		
