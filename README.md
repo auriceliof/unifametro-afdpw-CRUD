@@ -1,6 +1,16 @@
-@AUTHOR: Auricelio Freitas
+Pós-Graduação em Engenharia de Software, Devops e Computação em Nuvem
 
-DATA: 16/04/2024
+Disciplina de Arquitetura e Frameworks para Desenvolvimento Web
+
+Projeto CRUD
+
+Equipe: 
+    - Auricelio Freitas
+    - Miguel Soares
+    - Rafael Sales
+    - Matheus Marques
+
+DATA: 19/04/2024
 
 -----------------------------------------------------------
 BACKEND
